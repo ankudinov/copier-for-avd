@@ -13,7 +13,7 @@ spine:
     - name: dc1-spine1
       platform: cEOS
       # Node management interface IPv4 address
-      mgmt_ip: 172.16.1.11
+      mgmt_ip: 172.16.1.55
     - name: dc1-spine2
       platform: cEOS
       # Node management interface IPv4 address

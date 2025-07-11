@@ -14,11 +14,8 @@ l3leaf:
     vtep_loopback_ipv4_pool: 10.255.1.0/27
     # Ansible hostname of the devices used to establish neighborship (IP assignments and BGP peering)
     uplink_switches:
-{%- for device in inventory %}
-{%-     if device.type == 'spine' %}
-        - {{ device.hostname }}
-{%-     endif %}
-{%- endfor %}
+        - dc1-spine1
+        - dc1-spine2
     # Definition of pool of IPs to be used in P2P links
     uplink_ipv4_pool: 10.255.255.0/26
     # Definition of pool of IPs to be used for MLAG peer-link connectivity
@@ -32,8 +29,8 @@ l3leaf:
 
 # If two nodes (and only two) are in the same node_group, they will automatically form an MLAG pair
   node_groups:
-    # Definition of a node group that will include two devices in MLAG.
-    # Definitions under the group will be inherited by both nodes in the group
+    - group: DC1_L3_LEAF1
+    - group: DC1_L3_LEAF2
     - group: DC1_L3_LEAF1
       # ASN to be used by BGP for the group. Both devices in the MLAG pair will use the same BGP ASN
       bgp_as: 65101

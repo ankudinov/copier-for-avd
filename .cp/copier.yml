@@ -1,6 +1,11 @@
 ---
+_jinja_extensions:
+  - copier_templates_extensions.TemplateExtensionLoader
+  - extensions/mlag_groups.py:MlagGroupsExtension
+
 _exclude:
   - copier.yml
+  - extra-vars
 
 avd_inventory_dir:
     type: str
