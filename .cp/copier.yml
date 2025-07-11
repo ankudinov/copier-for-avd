@@ -6,6 +6,7 @@ _jinja_extensions:
 _exclude:
   - copier.yml
   - extra-vars
+  - extensions
 
 avd_inventory_dir:
     type: str
