@@ -1,0 +1,7 @@
+hostname, mgmt_ip,type,platform,mlag_group,bgp_asn
+dc1-spine1,172.16.1.55,spine,cEOS,,65100
+dc1-spine2,172.16.1.12,spine,cEOS,,65100
+dc1-leaf1a,172.16.1.101,l3leaf,cEOS,DC1_L3_LEAF1,65101
+dc1-leaf1b,172.16.1.102,l3leaf,cEOS,DC1_L3_LEAF1,65101
+dc1-leaf2a,172.16.1.103,l3leaf,cEOS,DC1_L3_LEAF2,65102
+dc1-leaf2b,172.16.1.104,l3leaf,cEOS,DC1_L3_LEAF2,65102

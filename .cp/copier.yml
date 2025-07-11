@@ -1,0 +1,10 @@
+---
+_exclude:
+  - copier.yml
+
+avd_inventory_dir:
+    type: str
+    help: |
+      avd_inventory_dir:
+          AVD directory name.
+    default: "avd_inventory"

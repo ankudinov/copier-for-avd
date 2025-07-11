@@ -1,0 +1,21 @@
+---
+type: spine
+
+spine:
+  # Define variables for all nodes of this type
+  defaults:
+    # Pool of IPv4 addresses to configure interface Loopback0 used for BGP EVPN sessions
+    loopback_ipv4_pool: 10.255.0.0/27
+    # Autonous System Number for BGP
+    bgp_as: 65100
+  # Define variables per node
+  nodes:
+{%- for device in inventory %}
+{%- if device.type == 'spine' %}
+    - name: {{ device.hostname }}
+      platform: {{ device.platform }}
+      # Node management interface IPv4 address
+      mgmt_ip: {{ device.mgmt_ip }}
+{%- endif %}
+{%- endfor %}
+

@@ -1,0 +1,30 @@
+---
+all:
+  children:
+    FABRIC:
+      children:
+        DC1:
+          children:
+            DC1_SPINES:
+              hosts:
+{%- for device in inventory %}
+{%- if device.type == 'spine' %}
+                {{ device.hostname }}:
+                  ansible_host: {{ device.mgmt_ip }}
+{%- endif %}
+{%- endfor %}
+            DC1_L3_LEAFS:
+              hosts:
+{%- for device in inventory %}
+{%-     if device.type == 'l3leaf' %}
+                {{ device.hostname }}:
+                  ansible_host: {{ device.mgmt_ip }}
+{%-     endif %}
+{%- endfor %}
+
+    NETWORK_SERVICES:
+      children:
+        DC1_L3_LEAFS:
+    CONNECTED_ENDPOINTS:
+      children:
+        DC1_L3_LEAFS:
